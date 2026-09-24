@@ -469,6 +469,16 @@
   .admin-card-grid {
     display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px;
   }
+  /* Student quick-access uses the same card sizing as the admin dashboard,
+     with a centered container so the dashboard does not feel left-heavy. */
+  #home-card-grid {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #home-card-grid .admin-card {
+    min-height: 128px;
+  }
   .admin-card {
     text-align: left; background: var(--surface); border: 1px solid var(--line);
     border-radius: var(--radius-m); padding: 16px; box-shadow: var(--shadow); cursor: pointer;
@@ -3219,6 +3229,8 @@ function studentCard(row){
     <div class="actions">
       <button type="button" class="icon-btn edit" data-admin-student-action="edit">✎ Edit</button>
       <button type="button" class="icon-btn" data-admin-student-action="reset-password">🔑 Reset password</button>
+      <button type="button" class="icon-btn" data-admin-student-action="make-admin">👤 Make admin</button>
+      <button type="button" class="icon-btn remove" data-admin-student-action="delete">🗑 Delete</button>
     </div>
   </article>`;
 }
@@ -3389,6 +3401,49 @@ async function resetStudentPassword(row){
   }
 }
 
+async function makeStudentAdmin(row){
+  if (!row || !state.authed || state.role !== 'admin') return;
+  askConfirm(
+    'Make this student an admin?',
+    `${row.name} will become an administrator for your class and will see the Admin Dashboard the next time they sign in.`,
+    async () => {
+      try {
+        const { data, error } = await supabase.rpc('admin_promote_student', { p_student_id: row.id });
+        if (error) throw error;
+        if (!data || !data.ok) throw userError((data && data.error) || 'Could not make the student an admin.');
+        toast(`${row.name} is now an admin`);
+        await loadAdminStudents();
+      } catch (err) {
+        console.error('Promoting student failed:', err);
+        toast(err && err.userMessage ? err.userMessage : 'Could not make the student an admin.');
+      }
+    },
+    'Make admin'
+  );
+}
+
+async function deleteStudent(row){
+  if (!row || !state.authed || state.role !== 'admin') return;
+  askConfirm(
+    'Delete this student?',
+    `${row.name} (${row.student_id}) will be removed from your class. This action cannot be undone from the app.`,
+    async () => {
+      try {
+        const { data, error } = await supabase.rpc('admin_delete_student', { p_student_id: row.id });
+        if (error) throw error;
+        if (!data || !data.ok) throw userError((data && data.error) || 'Could not delete the student.');
+        state.adminStudents = state.adminStudents.filter(x => x.id !== row.id);
+        toast('Student deleted');
+        renderAdminStudents();
+      } catch (err) {
+        console.error('Deleting student failed:', err);
+        toast(err && err.userMessage ? err.userMessage : 'Could not delete the student.');
+      }
+    },
+    'Delete'
+  );
+}
+
 document.getElementById('admin-panel').addEventListener('click', (e) => {
   const btn = e.target.closest('[data-admin-student-action]');
   if (!btn || !state.authed || state.role !== 'admin') return;
@@ -3399,6 +3454,8 @@ document.getElementById('admin-panel').addEventListener('click', (e) => {
   else if (action === 'retry') loadAdminStudents();
   else if (action === 'edit' && row) openAdminStudentDialog(row);
   else if (action === 'reset-password' && row) resetStudentPassword(row);
+  else if (action === 'make-admin' && row) makeStudentAdmin(row);
+  else if (action === 'delete' && row) deleteStudent(row);
 });
 
 async function loadAdminDashboard(){
@@ -3500,6 +3557,7 @@ async function handleAuthenticatedSession(session){
   state.authed = true;
   state.userId = profileRow.id;
   state.classId = profileRow.class_id || null;
+  startNotificationPolling();
   if (state.role === 'admin') {
     showAdminScreen();
   } else {
@@ -4852,6 +4910,19 @@ async function markAllNotificationsRead(){
   } catch (err) { console.error('Mark all notifications read failed:', err); }
 }
 
+function startNotificationPolling(){
+  if (notificationPollTimer) {
+    clearInterval(notificationPollTimer);
+    notificationPollTimer = null;
+  }
+  if (!state.authed || state.role === 'admin') return;
+  // Load immediately after authentication so the unread badge is correct
+  // without requiring the notification panel to be opened first.
+  syncExistingPushSubscription();
+  loadNotificationCenter();
+  notificationPollTimer = setInterval(refreshNotificationCenter, 60 * 1000);
+}
+
 function bindNotificationCenter(){
   const btn = document.getElementById('notification-btn');
   const panel = document.getElementById('notification-panel');
@@ -5271,7 +5342,6 @@ async function init(){
   bindNotificationCenter();
   checkReminderNotifications();
   setInterval(checkReminderNotifications, 30 * 60 * 1000);
-  if (state.authed && state.role !== 'admin') { syncExistingPushSubscription(); loadNotificationCenter(); notificationPollTimer = setInterval(refreshNotificationCenter, 60 * 1000); }
 
   state.route = currentRouteFromHash();
   if (!location.hash) location.hash = '#/home';
@@ -5291,6 +5361,7 @@ async function init(){
 
   supabase.auth.onAuthStateChange((event) => {
     if (event === 'SIGNED_OUT') {
+      if (notificationPollTimer) { clearInterval(notificationPollTimer); notificationPollTimer = null; }
       showLoginScreen();
     }
   });
