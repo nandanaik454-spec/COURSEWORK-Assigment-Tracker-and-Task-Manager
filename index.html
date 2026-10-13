@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coursework — Assignment &amp; Worksheet Tracker</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2B3A55">
+<meta name="theme-color" content="#6D1F31">
 <script>
   (function(){
     try {
@@ -27,26 +27,26 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <style>
   :root {
-    --bg: #F3F4EE;
-    --surface: #FFFFFF;
-    --surface-alt: #EAEBE2;
-    --ink: #1E2430;
-    --ink-muted: #5B6472;
-    --ink-faint: #8A93A2;
-    --line: #DEE0D6;
-    --line-strong: #C7CABC;
-    --primary: #2B3A55;
+    --bg: #EFE4D1;
+    --surface: #FBF6EB;
+    --surface-alt: #E7DAC3;
+    --ink: #2B221B;
+    --ink-muted: #6A5B4D;
+    --ink-faint: #8F8070;
+    --line: #DDCFB6;
+    --line-strong: #C8B79A;
+    --primary: #6D1F31;
     --primary-ink: #FFFFFF;
-    --primary-soft: #E6EAF1;
-    --red: #C1443B;
-    --red-soft: #F8E4E2;
-    --yellow: #B9821E;
-    --yellow-soft: #F6EAD3;
+    --primary-soft: #EEDAD0;
+    --red: #C03A2B;
+    --red-soft: #F4D9D0;
+    --yellow: #A8730F;
+    --yellow-soft: #F1E0B8;
     --green: #3F7A56;
-    --green-soft: #E1EEE5;
-    --neutral: #78829A;
-    --neutral-soft: #E7E9EE;
-    --shadow: 0 1px 2px rgba(30,36,48,0.06);
+    --green-soft: #DBE7D3;
+    --neutral: #857868;
+    --neutral-soft: #E4D9C6;
+    --shadow: 0 1px 2px rgba(70,40,20,0.06);
     --radius-s: 8px;
     --radius-m: 14px;
     --radius-l: 20px;
@@ -570,25 +570,25 @@
 
   /* ---------- Clean Academic visual system ---------- */
   :root {
-    --bg: #F3F4EE;
-    --surface: #FFFFFF;
-    --surface-alt: #EAEBE2;
-    --ink: #1E2430;
-    --ink-muted: #5B6472;
-    --ink-faint: #8A93A2;
-    --line: #DEE0D6;
-    --line-strong: #C7CABC;
-    --primary: #2B3A55;
+    --bg: #EFE4D1;
+    --surface: #FBF6EB;
+    --surface-alt: #E7DAC3;
+    --ink: #2B221B;
+    --ink-muted: #6A5B4D;
+    --ink-faint: #8F8070;
+    --line: #DDCFB6;
+    --line-strong: #C8B79A;
+    --primary: #6D1F31;
     --primary-ink: #FFFFFF;
-    --primary-soft: #E6EAF1;
-    --red: #C1443B;
-    --red-soft: #F8E4E2;
-    --yellow: #B9821E;
-    --yellow-soft: #F6EAD3;
+    --primary-soft: #EEDAD0;
+    --red: #C03A2B;
+    --red-soft: #F4D9D0;
+    --yellow: #A8730F;
+    --yellow-soft: #F1E0B8;
     --green: #3F7A56;
-    --green-soft: #E1EEE5;
-    --neutral: #78829A;
-    --neutral-soft: #E7E9EE;
+    --green-soft: #DBE7D3;
+    --neutral: #857868;
+    --neutral-soft: #E4D9C6;
     --shadow: none;
     --radius-s: 2px;
     --radius-m: 2px;
@@ -606,7 +606,7 @@
     box-shadow: none !important;
   }
   .btn-primary { background: var(--primary); color: var(--primary-ink); }
-  .btn-primary:hover { background: #344663; opacity: 1; }
+  .btn-primary:hover { background: color-mix(in srgb, var(--primary) 88%, #000); opacity: 1; }
   .btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
   .btn-ghost:hover { background: var(--surface-alt); }
   .btn-danger { background: var(--red-soft); color: var(--red); border-color: var(--line); }
@@ -777,25 +777,25 @@
 
   /* ---------- Optional dark theme ---------- */
   html[data-theme="dark"] {
-    --bg: #20242B;
-    --surface: #292E36;
-    --surface-alt: #323842;
-    --ink: #ECEFF3;
-    --ink-muted: #B3BBC6;
-    --ink-faint: #858F9C;
-    --line: #414954;
-    --line-strong: #56606D;
-    --primary: #7189AE;
-    --primary-ink: #151A21;
-    --primary-soft: #343E4E;
-    --red: #E27A72;
-    --red-soft: #4A2F31;
+    --bg: #1C1B1A;
+    --surface: #272624;
+    --surface-alt: #32302D;
+    --ink: #F2ECE2;
+    --ink-muted: #BDB3A5;
+    --ink-faint: #8F877B;
+    --line: #3E3B37;
+    --line-strong: #55514B;
+    --primary: #E3B23C;
+    --primary-ink: #1C1A17;
+    --primary-soft: #433A22;
+    --red: #E5716C;
+    --red-soft: #4B2C2B;
     --yellow: #D7AA55;
-    --yellow-soft: #493E2A;
+    --yellow-soft: #473D2A;
     --green: #72AE87;
     --green-soft: #2E4336;
-    --neutral: #A4ADBA;
-    --neutral-soft: #39404A;
+    --neutral: #A59D91;
+    --neutral-soft: #3A3733;
   }
 
   html[data-theme="dark"] body { background: var(--bg); color: var(--ink); }
@@ -805,7 +805,7 @@
   html[data-theme="dark"] .admin-logout-btn:hover { background: var(--surface-alt); }
   html[data-theme="dark"] dialog::backdrop { background: rgba(0,0,0,.64); }
   html[data-theme="dark"] .toast { background: var(--surface-alt); color: var(--ink); border-color: var(--line-strong); }
-  html[data-theme="dark"] .btn-primary:hover { background: #8197B9; }
+  html[data-theme="dark"] .btn-primary:hover { background: color-mix(in srgb, var(--primary) 86%, #fff); }
   html[data-theme="dark"] .theme-toggle:hover { background: var(--surface-alt); }
 
   .theme-toggle {
@@ -826,6 +826,197 @@
     .theme-toggle { width: 32px; height: 32px; }
   }
 
+
+  /* ================= Glass surface + subtle motion layer (UI-only) ================= */
+  :root {
+    --glass-border: rgba(255,255,255,0.62);
+    --glass-hi: inset 0 1px 0 rgba(255,255,255,0.55);
+    --glass-shadow: 0 4px 18px rgba(80,45,20,0.10);
+    --glass-shadow-hover: 0 10px 26px rgba(80,45,20,0.16);
+    --amb-1: color-mix(in srgb, var(--primary) 30%, transparent);
+    --amb-2: color-mix(in srgb, #C79B66 52%, transparent);
+    --ambient:
+      radial-gradient(760px 480px at 4% -4%, var(--amb-1), transparent 70%),
+      radial-gradient(700px 480px at 100% 14%, var(--amb-2), transparent 70%),
+      radial-gradient(760px 560px at 40% 108%, var(--amb-1), transparent 72%);
+  }
+  html[data-theme="dark"] {
+    --glass-border: rgba(255,255,255,0.09);
+    --glass-hi: inset 0 1px 0 rgba(255,255,255,0.06);
+    --glass-shadow: 0 4px 18px rgba(0,0,0,0.32);
+    --glass-shadow-hover: 0 10px 26px rgba(0,0,0,0.45);
+    --amb-1: color-mix(in srgb, var(--primary) 16%, transparent);
+    --amb-2: color-mix(in srgb, #8A7440 18%, transparent);
+  }
+
+  /* Soft ambient wash behind the glass so the blur has something to frost */
+  html:root body,
+  #login-screen,
+  #admin-screen {
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--primary) 7%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--primary) 7%, transparent) 1px, transparent 1px),
+      var(--ambient);
+    background-size: 28px 28px, 28px 28px, auto, auto, auto;
+    background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat;
+  }
+
+  /* Cards, widgets and tiles */
+  .summary-card,
+  .deadline-row,
+  .item-card,
+  .folder-card,
+  .admin-card,
+  .admin-status,
+  .admin-summary-item,
+  .profile-field {
+    background: color-mix(in srgb, var(--surface) 62%, transparent);
+    border-color: var(--glass-border);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+    backdrop-filter: blur(14px) saturate(1.1);
+    box-shadow: var(--glass-hi), var(--glass-shadow) !important;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background-color .18s ease;
+  }
+  .admin-card:hover { background: color-mix(in srgb, var(--surface-alt) 62%, transparent); }
+  .admin-card.active { border-color: var(--primary); background: color-mix(in srgb, var(--primary-soft) 74%, transparent); }
+  .item-card.completed-item { background: color-mix(in srgb, var(--surface) 46%, transparent); }
+  .item-card .actions { border-color: color-mix(in srgb, var(--line) 70%, transparent); }
+
+  /* Floating panels: login, notifications, dialogs */
+  .login-card,
+  .notification-panel {
+    background: color-mix(in srgb, var(--surface) 76%, transparent);
+    border-color: var(--glass-border);
+    -webkit-backdrop-filter: blur(20px) saturate(1.1);
+    backdrop-filter: blur(20px) saturate(1.1);
+    box-shadow: var(--glass-hi), 0 12px 34px rgba(80,45,20,0.16) !important;
+  }
+  dialog {
+    background: color-mix(in srgb, var(--surface) 80%, transparent);
+    border: 1px solid var(--glass-border);
+    -webkit-backdrop-filter: blur(22px) saturate(1.1);
+    backdrop-filter: blur(22px) saturate(1.1);
+    box-shadow: var(--glass-hi), 0 18px 48px rgba(80,45,20,0.24) !important;
+  }
+  .dialog-inner { background: transparent; }
+  html:not([data-theme="dark"]) dialog::backdrop { background: rgba(50,30,18,0.40); }
+  dialog::backdrop { -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  html[data-theme="dark"] .login-card,
+  html[data-theme="dark"] .notification-panel { box-shadow: var(--glass-hi), 0 12px 34px rgba(0,0,0,0.5) !important; }
+  html[data-theme="dark"] dialog { box-shadow: var(--glass-hi), 0 18px 48px rgba(0,0,0,0.55) !important; }
+
+  /* Vermillion header bars (student top banner + admin header) */
+  .profile-banner,
+  .admin-header {
+    background: color-mix(in srgb, var(--primary) 90%, transparent);
+    color: var(--primary-ink);
+    border-bottom: 1px solid color-mix(in srgb, var(--primary-ink) 22%, transparent);
+    -webkit-backdrop-filter: blur(18px) saturate(1.1);
+    backdrop-filter: blur(18px) saturate(1.1);
+    box-shadow: 0 4px 18px color-mix(in srgb, var(--primary) 22%, transparent);
+  }
+  .pb-name, .admin-user, .admin-header h1 { color: var(--primary-ink); }
+  .pb-avatar { background: var(--primary-ink); color: var(--primary); }
+  .admin-header .brand-mark { background: var(--primary-ink); color: var(--primary); }
+  .admin-header .theme-toggle,
+  .admin-header .notification-btn {
+    background: color-mix(in srgb, var(--primary-ink) 16%, transparent);
+    color: var(--primary-ink);
+    border-color: color-mix(in srgb, var(--primary-ink) 40%, transparent);
+  }
+  .admin-header .theme-toggle:hover,
+  .admin-header .notification-btn:hover { background: color-mix(in srgb, var(--primary-ink) 26%, transparent); }
+  .admin-header .notification-count { border-color: var(--primary); }
+  .admin-logout-btn { color: var(--primary-ink); border-color: color-mix(in srgb, var(--primary-ink) 55%, transparent); }
+  .admin-logout-btn:hover { background: color-mix(in srgb, var(--primary-ink) 18%, transparent); }
+
+  /* Glass buttons: translucent fill, soft edge, light blur */
+  .btn,
+  .icon-btn,
+  .theme-toggle,
+  .notification-btn,
+  .avatar-edit-badge {
+    -webkit-backdrop-filter: blur(10px) saturate(1.1);
+    backdrop-filter: blur(10px) saturate(1.1);
+  }
+  .btn-primary {
+    background: color-mix(in srgb, var(--primary) 78%, transparent);
+    border-color: rgba(255,255,255,0.30);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 4px 14px color-mix(in srgb, var(--primary) 26%, transparent) !important;
+  }
+  .btn-primary:hover,
+  html[data-theme="dark"] .btn-primary:hover { background: color-mix(in srgb, var(--primary) 90%, transparent); }
+  .btn-ghost {
+    background: color-mix(in srgb, var(--surface) 42%, transparent);
+    border-color: var(--glass-border);
+    box-shadow: var(--glass-hi), 0 2px 8px rgba(80,45,20,0.06) !important;
+  }
+  .btn-ghost:hover { background: color-mix(in srgb, var(--surface) 68%, transparent); }
+  .btn-danger {
+    background: color-mix(in srgb, var(--red-soft) 62%, transparent);
+    border-color: color-mix(in srgb, var(--red) 28%, transparent);
+  }
+  .icon-btn.edit,
+  .icon-btn.complete,
+  .icon-btn.remove {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 22%, transparent), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .icon-btn.edit { background: color-mix(in srgb, var(--primary-soft) 62%, transparent); }
+  .icon-btn.complete { background: color-mix(in srgb, var(--green-soft) 62%, transparent); }
+  .icon-btn.remove { background: color-mix(in srgb, var(--red-soft) 62%, transparent); }
+  .theme-toggle,
+  .notification-btn,
+  .avatar-edit-badge {
+    background: color-mix(in srgb, var(--surface) 46%, transparent);
+    border-color: var(--glass-border);
+  }
+  html[data-theme="dark"] .btn-primary { border-color: rgba(255,255,255,0.18); }
+  html[data-theme="dark"] .btn-ghost { box-shadow: var(--glass-hi), 0 2px 8px rgba(0,0,0,0.25) !important; }
+
+  /* Admin header in dark mode: beat the older dark-theme header rules so it turns mustard like the student banner */
+  html[data-theme="dark"] .admin-header {
+    background: color-mix(in srgb, var(--primary) 90%, transparent);
+    color: var(--primary-ink);
+    border-bottom-color: color-mix(in srgb, var(--primary-ink) 22%, transparent);
+  }
+  html[data-theme="dark"] .admin-logout-btn { color: var(--primary-ink); border-color: color-mix(in srgb, var(--primary-ink) 55%, transparent); }
+  html[data-theme="dark"] .admin-logout-btn:hover { background: color-mix(in srgb, var(--primary-ink) 18%, transparent); }
+
+  /* Small hover feedback (pointer devices only) */
+  @media (hover: hover) {
+    .item-card:hover,
+    .summary-card:hover,
+    .deadline-row:hover,
+    .folder-card:hover,
+    .admin-card:hover { transform: translateY(-1px); box-shadow: var(--glass-hi), var(--glass-shadow-hover) !important; }
+  }
+
+  /* Short colour/opacity transitions on existing controls */
+  .btn { transition: transform .08s ease, background-color .15s ease, border-color .15s ease, opacity .15s ease; }
+  .icon-btn { transition: background-color .15s ease, opacity .15s ease, transform .08s ease; }
+  .icon-btn:hover { opacity: 0.88; }
+  .icon-btn:active { transform: scale(0.97); }
+  .notification-btn, .theme-toggle, .avatar-edit-badge { transition: background-color .15s ease, border-color .15s ease; }
+  .search-input, select.filter-select, .field input, .field textarea, .field select { transition: border-color .15s ease; }
+
+  /* Gentle open for existing modals / notification panel */
+  @keyframes glass-dialog-in { from { opacity: 0; transform: translateY(6px) scale(0.985); } to { opacity: 1; transform: none; } }
+  @keyframes glass-fade-in { from { opacity: 0; } to { opacity: 1; } }
+  dialog[open] { animation: glass-dialog-in .18s ease-out; }
+  dialog[open]::backdrop { animation: glass-fade-in .18s ease-out; }
+  .notification-panel:not([hidden]) { animation: glass-fade-in .15s ease-out; }
+
+  /* Keep long mobile lists light: lighter blur on repeated cards on small screens */
+  @media (max-width: 640px) {
+    .item-card, .deadline-row, .folder-card, .summary-card, .admin-card, .admin-summary-item, .profile-field {
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    .item-card:hover, .summary-card:hover, .deadline-row:hover, .folder-card:hover, .admin-card:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
@@ -2047,9 +2238,6 @@ function materialCard(m){
           </div>
         </div>
       </div>
-    </div>
-    <div class="actions">
-      <button type="button" class="icon-btn edit" data-action="preview-material">↗ View</button>
     </div>
   </article>`;
 }
